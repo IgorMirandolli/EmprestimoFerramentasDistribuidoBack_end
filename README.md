@@ -12,3 +12,14 @@ Este repositório contém um projeto desenvolvido na primeira fase do curso de g
 - Utilizar padrões de desenvolvimento como **DAO** para organização das telas e acesso a dados.
 
 ---
+
+## 🧱 Estrutura Inicial
+
+O sistema conta com as seguintes classes principais:
+
+- `Amigo`: Responsável por armazenar os dados da pessoa que pode pegar ferramentas emprestadas.
+- `Ferramenta`: Responsável por armazenar os dados das ferramentas disponíveis.
+- `Conexao`: Classe que realiza a conexão com o banco de dados SQLite.
+- `DAO`: Camada de acesso aos dados utilizada pelas telas da aplicação.
+
+---
