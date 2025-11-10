@@ -61,3 +61,12 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
         ferramentaDAO.UpdateFerramentaDB(ferramenta);
     }
     
+    @Override
+    public void excluirFerramenta(int id) throws RemoteException {
+        ferramentaDAO.DeleteFerramentaDB(id);
+    }
+    
+    @Override
+    public Ferramenta buscarFerramentaPorId(int id) throws RemoteException {
+        return ferramentaDAO.RecuperaFerramentaDB(id);
+    }
