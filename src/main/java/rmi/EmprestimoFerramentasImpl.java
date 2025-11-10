@@ -96,3 +96,16 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
     public List<Emprestimo> listarEmprestimos() throws RemoteException {
         return emprestimoDAO.getListaEmprestimo();
     }
+
+    @Override
+    public List<Emprestimo> buscarEmprestimosPorAmigo(int amigoId) throws RemoteException {
+        List<Emprestimo> todosEmprestimos = emprestimoDAO.getListaEmprestimo();
+        List<Emprestimo> emprestimosDoAmigo = new ArrayList<>();
+        for (Emprestimo emp : todosEmprestimos) {
+            if (emp.getIdAmigo() == amigoId) {
+                emprestimosDoAmigo.add(emp);
+            }
+        }
+        return emprestimosDoAmigo;
+    }
+}
