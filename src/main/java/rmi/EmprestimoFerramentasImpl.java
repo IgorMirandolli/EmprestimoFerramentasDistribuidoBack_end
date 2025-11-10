@@ -22,3 +22,10 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
         this.ferramentaDAO = new FerramentaDAO();
         this.emprestimoDAO = new EmprestimoDAO();
     }
+    
+    // Implementações para Amigo
+    @Override
+    public void cadastrarAmigo(Amigo amigo) throws RemoteException {
+        amigo.setIdAmigo(amigoDAO.maiorIDAmigo() + 1);
+        amigoDAO.insertAmigoBD(amigo);
+    }
