@@ -91,3 +91,8 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
             emprestimoDAO.updateEmprestimoBD(emprestimo);
         }
     }
+    
+    @Override
+    public List<Emprestimo> listarEmprestimos() throws RemoteException {
+        return emprestimoDAO.getListaEmprestimo();
+    }
