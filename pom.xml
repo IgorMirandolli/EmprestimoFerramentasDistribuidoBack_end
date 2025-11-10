@@ -5,26 +5,9 @@
     <artifactId>EmprestimoFerramentasDistribuidoBack-end</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>principal.Principal</exec.mainClass>
+        <maven.compiler.release>24</maven.compiler.release>
+        <exec.mainClass>com.mycompany.EmprestimoFerramentasDistribuidoBack-end.EmprestimoFerramentasDistribuidoBack-end</exec.mainClass>
     </properties>
-
-    <dependencies>
-        <!-- SQLite JDBC Driver -->
-        <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.43.2.2</version>
-        </dependency>
-
-        <!-- Log -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.21</version>
-        </dependency>
-    </dependencies>
+</project>
