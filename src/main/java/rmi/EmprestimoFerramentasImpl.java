@@ -44,3 +44,8 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
     public Amigo buscarAmigoPorId(int id) throws RemoteException {
         return amigoDAO.RecuperaAmigoBD(id);
     }
+        @Override
+    public List<Amigo> listarAmigos() throws RemoteException {
+        return amigoDAO.getListaAmigo();
+    }
+    
