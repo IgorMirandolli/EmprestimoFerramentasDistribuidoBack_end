@@ -82,3 +82,12 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
         emprestimo.setIdEmprestimo(emprestimoDAO.maiorIDEmprestimo() + 1);
         emprestimoDAO.insertEmprestimoBD(emprestimo);
     }
+    
+     @Override
+    public void devolverFerramenta(int emprestimoId) throws RemoteException {
+        Emprestimo emprestimo = emprestimoDAO.RecuperaEmprestimoDB(emprestimoId);
+        if (emprestimo != null) {
+            emprestimo.setDataDev(new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()));
+            emprestimoDAO.updateEmprestimoBD(emprestimo);
+        }
+    }
