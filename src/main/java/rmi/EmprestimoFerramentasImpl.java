@@ -49,3 +49,9 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
         return amigoDAO.getListaAmigo();
     }
     
+// Implementações para Ferramenta
+        @Override
+    public void cadastrarFerramenta(Ferramenta ferramenta) throws RemoteException {
+        ferramenta.setIdFerramentas(ferramentaDAO.MaiorIdFerramentas() + 1);
+        ferramentaDAO.InsertFerramentaDB(ferramenta);
+    }
