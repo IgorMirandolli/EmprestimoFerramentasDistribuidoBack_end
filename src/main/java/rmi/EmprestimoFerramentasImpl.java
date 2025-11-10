@@ -70,3 +70,15 @@ public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements Em
     public Ferramenta buscarFerramentaPorId(int id) throws RemoteException {
         return ferramentaDAO.RecuperaFerramentaDB(id);
     }
+
+    @Override
+    public List<Ferramenta> listarFerramentas() throws RemoteException {
+        return ferramentaDAO.getListaFerramentas();
+    }
+
+    // Implementações para Empréstimo
+    @Override
+    public void registrarEmprestimo(Emprestimo emprestimo) throws RemoteException {
+        emprestimo.setIdEmprestimo(emprestimoDAO.maiorIDEmprestimo() + 1);
+        emprestimoDAO.insertEmprestimoBD(emprestimo);
+    }
