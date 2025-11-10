@@ -23,3 +23,10 @@ O sistema conta com as seguintes classes principais:
 - `DAO`: Camada de acesso aos dados utilizada pelas telas da aplicação.
 
 ---
+
+## 🚀 Tecnologias Utilizadas
+- Java - Versão: 21
+- NetBeans - Versão: 21
+- SQLite3 - Versão: 3.49.2
+- Maven
+- JUnit - Versão: 5.9.0
