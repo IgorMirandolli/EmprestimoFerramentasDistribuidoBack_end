@@ -30,3 +30,20 @@ O sistema conta com as seguintes classes principais:
 - SQLite3 - Versão: 3.49.2
 - Maven
 - JUnit - Versão: 5.9.0
+
+## 🧠 Integrantes do Grupo
+
+➡️ Igor Vinicius Sotili Mirandolli - RA: 1072416369 - Conta GitHub - [IgorMirandolli](https://github.com/IgorMirandolli)
+
+➡️ Bernardo Santos Vieira - RA: 1072415392 - Conta GitHub - [BernardoSVieira](https://github.com/BernardoSVieira)
+
+➡️ Guilherme Mitsuo Honda - RA: 1072416697 - Conta GitHub - [lmitsuol](https://github.com/lmitsuol)
+
+➡️ Victor Hasse - RA: 10724111755 - Conta GitHub - [victorhasse](https://github.com/victorhasse)
+
+## Links
+
+- Front-End: [Link do Projeto](https://github.com/IgorMirandolli/EmprestimoFerramentasDistribuidoFront-end/)
+- Back-End: [Link do Projeto](https://github.com/IgorMirandolli/EmprestimoFerramentasDistribuidoBack-end)
+- Documento: [Link do Documento](https://docs.google.com/document/d/1zBONAHv6A6uxAW3HqB1aM5DrpkD6jwheI6X3jT_6RRw/edit?usp=sharing)
+- Slides: [Link dos Slides](https://docs.google.com/presentation/d/1LMu9xkkqcddwMduFvg09Tckzj-V2Sq3txSV1RtRq1Xc/edit?usp=sharing)
