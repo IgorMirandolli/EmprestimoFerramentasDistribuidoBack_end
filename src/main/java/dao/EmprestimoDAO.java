@@ -20,17 +20,11 @@ public class EmprestimoDAO {
     private String idemp = "IdEmprestimo";
     
     /**
-     * Cria um ArrayList para os emprestimos.
-     */
-    public static ArrayList<Emprestimo> ListaEmprestimo = new ArrayList<>();
-
-    /**
-     * Obtem as informações dos emprestimos do banco de dados e cria um objeto com essas informações no ArrayList ListaEmprestimo.
+     * Obtem as informações dos emprestimos do banco de dados e cria um objeto com essas informações.
      * @return A lista de emprestimos após a coleta dos dados.
      */
     public ArrayList<Emprestimo> getListaEmprestimo() {
-        
-       ListaEmprestimo.clear(); //Limpa nosso ArrayList
+       ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
        
        try{
            try (Statement stmt = ut.getConexao().createStatement()) {
@@ -45,21 +39,12 @@ public class EmprestimoDAO {
                    
                    Emprestimo objeto = new Emprestimo(IdEmprestimo, IdAmigo, IdFerramentas, dataEmp, dataDev);
                    
-                   ListaEmprestimo.add(objeto);
+                   listaEmprestimo.add(objeto);
                }   }
     } catch (SQLException ex){
         LOGGER.log(Level.SEVERE, "Erro ao acessar os emprestimos", ex);
-
     }
-       return ListaEmprestimo;
-    }
-    
-    /*
-    Define a lista de emprestimo.
-    */
-    public static void setListaEmprestimo(ArrayList<Emprestimo> ListaEmprestimo) {
-        EmprestimoDAO.ListaEmprestimo = ListaEmprestimo;
-        
+       return listaEmprestimo;
     }
     
     /**
