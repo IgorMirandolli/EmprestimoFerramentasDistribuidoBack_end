@@ -11,51 +11,53 @@ import java.util.logging.Logger;
 
 public class AmigoDAO {
 
-    /*
-    Inicia o Utilitario,realizando a conecxão com o DB.
-     */
-    private Utilitario ut = new Utilitario();
+    private Utilitario ut;
     private static final Logger LOGGER = Logger.getLogger(AmigoDAO.class.getName());
 
-    /**
-     * Cria a ArrayList para os amigos.
-     */
-    public static ArrayList<Amigo> ListaAmigo = new ArrayList<>();
+    public AmigoDAO() {
+        ut = new Utilitario();
+        // Força inicialização da conexão no construtor
+        if (ut.getConexao() == null) {
+            LOGGER.severe("Não foi possível conectar ao banco de dados");
+            throw new RuntimeException("Falha ao conectar ao banco de dados");
+        }
+    }
 
     /**
      * Coleta as informações dos amigos do banco de dados e cria um objeto com
-     * essas informações no ArrayList da ListaAmigos.
+     * essas informações no ArrayList.
      *
-     * @return A lista de ferramentas após pegar os dados.
+     * @return A lista de amigos após pegar os dados.
      */
     public ArrayList<Amigo> getListaAmigo() {
-
-        ListaAmigo.clear(); // Limpa nosso ArrayList.
+        ArrayList<Amigo> lista = new ArrayList<>();
 
         try {
-    try (Statement stmt = ut.getConexao().createStatement()) {
-        ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
-                while (res.next()) {
+            if (ut.getConexao() == null) {
+                LOGGER.severe("Conexão com banco de dados é nula em getListaAmigo");
+                return lista;
+            }
 
+            try (Statement stmt = ut.getConexao().createStatement()) {
+                LOGGER.info("Executando SELECT * FROM tb_amigos");
+                ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
+                while (res.next()) {
                     int IdAmigo = res.getInt("IdAmigo");
                     String NomeAmigo = res.getString("NomeAmigo");
                     String TelefoneAmigo = res.getString("TelefoneAmigo");
                     String EmailAmigo = res.getString("EmailAmigo");
 
+                    LOGGER.info("Encontrado amigo: ID=" + IdAmigo + ", Nome=" + NomeAmigo);
                     Amigo objeto = new Amigo(IdAmigo, NomeAmigo, TelefoneAmigo, EmailAmigo);
-
-                    ListaAmigo.add(objeto);
+                    lista.add(objeto);
                 }
             }
-
         } catch (SQLException ex) {
             LOGGER.log(Level.SEVERE, "Erro ao acessar o banco de dados", ex);
+            ex.printStackTrace();
         }
-        return ListaAmigo;
-    }
-
-    public static void setListaAmigo(ArrayList<Amigo> ListaAmigo) {
-        AmigoDAO.ListaAmigo = ListaAmigo;
+        LOGGER.info("Retornando lista com " + lista.size() + " amigos");
+        return lista;
     }
 
     /**
