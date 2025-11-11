@@ -10,13 +10,14 @@ import java.util.logging.Logger;
  *  
  */
 
-public class Ferramenta {
+public class Ferramenta implements java.io.Serializable {
+    private static final long serialVersionUID = 1L;
     
     private int IdFerramentas;
     private String NomeFerramentas;
     private String MarcaFerramentas;
     private double CustoFerramentas;
-    FerramentaDAO dao;
+    transient FerramentaDAO dao;
     private static final Logger LOGGER = Logger.getLogger(Ferramenta.class.getName());
     
     
