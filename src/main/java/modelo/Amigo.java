@@ -8,13 +8,14 @@ import java.util.ArrayList;
  * Classe do Amigo com ; NomeAmigo, IdAmigo, EmailAmigo, TelefoneAmigo.
  * 
  */
-public class Amigo {
+public class Amigo implements java.io.Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String NomeAmigo;
     private int IdAmigo;
     private String EmailAmigo;
     private String TelefoneAmigo;
-    AmigoDAO dao;
+    transient AmigoDAO dao;
 
 
 /**
@@ -192,8 +193,9 @@ public class Amigo {
 */
     public int procuraIndice(int id) {
         int indice = -1;
-        for (int i = 0; i < AmigoDAO.ListaAmigo.size(); i++) {
-            if (AmigoDAO.ListaAmigo.get(i).getIdAmigo() == id) {
+        ArrayList<Amigo> lista = dao.getListaAmigo();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getIdAmigo() == id) {
                 indice = i;
             }
         }

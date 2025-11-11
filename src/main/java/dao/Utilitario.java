@@ -10,14 +10,28 @@ import java.util.logging.Logger;
 public class Utilitario {
     
 private static final Logger LOGGER = Logger.getLogger(Utilitario.class.getName());
+private static Connection connection = null;
 
 public Connection getConexao(){
+    if (connection != null) {
+        return connection;
+    }
     return getConexao("jdbc:sqlite:db_a3.db");
 }
 
 public Connection getConexao(String url) {
-        Connection connection = null;
+    if (connection != null) {
+        return connection;
+    }
         Statement stmt = null;
+        
+        try {
+            // Carrega o driver SQLite explicitamente
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            LOGGER.log(Level.SEVERE, "Driver SQLite não encontrado", e);
+            return null;
+        }
         
         try {
             // 1. Estabelece conexão
@@ -53,9 +67,10 @@ public Connection getConexao(String url) {
             stmt.execute(sqlAmigos);
             stmt.execute(sqlFerramentas);
             stmt.execute(sqlEmprestimos);
-
-           
-
+            
+            // Guarda a conexão no campo estático
+            Utilitario.connection = connection;
+            
             return connection;
 
         } catch (SQLException e) {
