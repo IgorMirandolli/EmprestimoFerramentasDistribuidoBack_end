@@ -19,18 +19,12 @@ public class FerramentaDAO {
     private static final Logger LOGGER = Logger.getLogger(FerramentaDAO.class.getName());
 
     /**
-     * Cria um ArrayList para as ferramentas.
-     */
-    public static ArrayList<Ferramenta> ListaFerramentas = new ArrayList<>();
-
-    /**
-     * Coleta as informações das ferramentas do banco de dados e cria um objeto
-     * com essas informações no ArrayList da ListaFerramentas.
+     * Coleta as informações das ferramentas do banco de dados.
      *
      * @return A lista de ferramentas após pegar os dados.
      */
     public ArrayList<Ferramenta> getListaFerramentas() {
-        ListaFerramentas.clear();
+        ArrayList<Ferramenta> listaFerramentas = new ArrayList<>();
         try {
             try (Statement smt = ut.getConexao().createStatement()) {
                 ResultSet res = smt.executeQuery("select * from tb_ferramentas");
@@ -41,17 +35,13 @@ public class FerramentaDAO {
                     double CustoFerramentas = res.getDouble("CustoFerramentas");
                     Ferramenta objeto = new Ferramenta(IdFerramentas, NomeFerramentas, MarcaFerramentas, CustoFerramentas);
                     
-                    ListaFerramentas.add(objeto);
+                    listaFerramentas.add(objeto);
                 }
             }
         } catch (SQLException ex) {
             LOGGER.log(Level.SEVERE, "Erro ao acessar a Ferramenta", ex);
         }
-        return ListaFerramentas;
-    }
-
-    public static void setListaFerramentas(ArrayList<Ferramenta> ListaFerramentas) {
-        FerramentaDAO.ListaFerramentas = ListaFerramentas;
+        return listaFerramentas;
     }
 
     /**
