@@ -11,7 +11,7 @@ import modelo.Amigo;
 import modelo.Ferramenta;
 import modelo.Emprestimo;
 
-public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements AmigoInterface, FerramentaInterface, EmprestimoInterface {
+public class EmprestimoFerramentasImpl extends UnicastRemoteObject implements EmprestimoFerramentasInterface {
     private AmigoDAO amigoDAO;
     private FerramentaDAO ferramentaDAO;
     private EmprestimoDAO emprestimoDAO;
