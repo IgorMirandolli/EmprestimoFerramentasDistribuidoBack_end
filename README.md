@@ -73,4 +73,4 @@ O sistema conta com a seguintes estruturas principais:
 - Front-End: [Link do Projeto](https://github.com/IgorMirandolli/EmprestimoFerramentasDistribuidoFront-end/)
 - Back-End: [Link do Projeto](https://github.com/IgorMirandolli/EmprestimoFerramentasDistribuidoBack-end)
 - Documento: [Link do Documento](https://docs.google.com/document/d/1zBONAHv6A6uxAW3HqB1aM5DrpkD6jwheI6X3jT_6RRw/edit?usp=sharing)
-- Slides: [Link dos Slides](https://docs.google.com/presentation/d/1LMu9xkkqcddwMduFvg09Tckzj-V2Sq3txSV1RtRq1Xc/edit?usp=sharing)
+- Slides: [Link dos Slides](https://docs.google.com/presentation/d/1HQ-3cebUXkrgELHy0N0X6Gr1T5wkP3MI_hATqlGEPkk/edit?usp=sharing)
